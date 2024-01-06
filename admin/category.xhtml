@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Add Category</title>
+    <style>
+        /* Reset some default styles for consistency */
+body, h1, h2, p, form {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Style the form container */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+/* Style form labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Style input fields */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+/* Style the Add Category button */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Style error messages */
+.error {
+    color: #FF0000;
+    margin-bottom: 10px;
+}
+
+    </style>
+</h:head>
+<h:body>
+    <h:form>
+        <h2>Add Category</h2>
+
+        <h:messages styleClass="error" />
+
+        <label for="categoryName">Category Name:</label>
+        <h:inputText id="categoryName" value="#{categoryBean.categoryName}" required="true" />
+
+        <label for="description">Description:</label>
+        <h:inputTextarea id="description" value="#{categoryBean.categoryDescription}" required="true" rows="4" cols="30" />
+
+        <h:commandButton value="Add Category" action="#{categoryBean.addCat()}" />
+      
+
+    </h:form>
+    
+              <table border="1">
+        <thead>
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Category Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <ui:repeat value="#{categoryBean.allcategory}" var="category">
+            <tr>
+                <td>#{categoryBean.categoryId}</td>
+                <td>#{categoryBean.categoryName}</td>
+                <td>#{categoryBean.categoryDescription}</td>
+                <td>
+                    <h:form>
+                        <h:commandButton value="Update" action="#{categoryBean.updatecat(categoryId, categoryName, categoryDescription)}"/> 
+                        <h:commandButton value="Delete" action="#{categoryBean.delcat(categoryId)}"/>
+                    </h:form>
+                </td>
+            </tr>
+        </ui:repeat>
+        </tbody>
+    </table>
+</h:body>
+</html>
+

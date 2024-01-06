@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Orders</title>
+</h:head>
+
+<h:body>
+    <h1>Orders</h1>
+
+    <h:dataTable value="#{orderdetail.orderd}" value="#{orderpayment.order}" var="order">
+        <h:column>
+            <f:facet name="header">Order ID</f:facet>
+            #{order.orderId}
+        </h:column>
+        <h:column>
+            <f:facet name="header">User ID</f:facet>
+            #{order.userId}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Order Detail ID</f:facet>
+            #{order.orderDetailId}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Product ID</f:facet>
+            #{order.productId}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Total Amount</f:facet>
+            #{order.totalAmount}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Discount</f:facet>
+            #{order.discount}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Tax Amount</f:facet>
+            #{order.taxAmount}
+        </h:column>
+        <h:column>
+            <f:facet name="header">GST Amount</f:facet>
+            #{order.gstAmount}
+        </h:column>
+        <h:column>
+            <f:facet name="header">SGST Amount</f:facet>
+            #{order.sgstAmount}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Grand Amount</f:facet>
+            #{order.grandAmount}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Quantity</f:facet>
+            #{order.quantity}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Created At</f:facet>
+            #{order.createdAt}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Updated At</f:facet>
+            #{order.updatedAt}
+        </h:column>
+    </h:dataTable>
+</h:body>
+</html>

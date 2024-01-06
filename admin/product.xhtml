@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+
+            h1 {
+                color: #333;
+            }
+
+            form {
+                max-width: 600px;
+                margin: 20px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .panelGrid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+            }
+
+            .outputLabel {
+                font-weight: bold;
+            }
+
+            input, textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0 20px 0;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            input[type="text"], textarea {
+                height: 40px;
+            }
+
+            input[type="submit"] {
+                background-color: #4caf50;
+                color: white;
+                padding: 15px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
+            .error {
+                color: #ff0000;
+                font-size: 14px;
+            }
+
+
+        </style>
+    </h:head>
+
+    <h:body>
+        <h:form enctype="multipart/form-data">
+            <h:panelGrid columns="2" cellpadding="4">
+                <h:outputLabel for="productName" value="Product Name:" />
+                <h:inputText id="productName" value="#{productm.productName}" required="true" />
+
+                <h:outputLabel for="productDescription" value="Product Description:" />
+                <h:inputTextarea id="productDescription" value="#{productm.productDescription}" required="true" />
+
+                <h:outputLabel for="productStatus" value="Product Status:" />
+                <h:inputText id="productStatus" value="#{productm.productStatus}" required="true" />
+
+                <h:inputFile id="pimage" value="#{productm.productImage}" class="form-control" title="Image" required="true" />
+                <h:outputLabel value="Image"  for="Image" />                          
+
+                <h:outputLabel for="totalAmount" value="Total Amount:" />
+                <h:inputText id="totalAmount" value="#{productm.totalAmount}" required="true" />
+
+                <h:outputLabel for="discount" value="Discount (%):" />
+                <h:inputText id="discount" value="#{productm.discount}" />
+
+                <h:outputLabel for="discountAmount" value="Discount Amount:" />
+                <h:inputText id="discountAmount" value="#{productm.discoutAmount}" />
+
+                <h:outputLabel for="taxAmount" value="Tax Amount:" />
+                <h:inputText id="taxAmount" value="#{productm.taxAmount}" />
+
+                <h:outputLabel for="gstAmount" value="GST Amount:" />
+                <h:inputText id="gstAmount" value="#{productm.gstAmount}" />
+
+                <h:outputLabel for="sgstAmount" value="SGST Amount:" />
+                <h:inputText id="sgstAmount" value="#{productm.sgstAmount}" />
+
+                <h:outputLabel for="grandAmount" value="Grand Amount:" />
+                <h:inputText id="grandAmount" value="#{productm.grandAmount}" required="true" />
+
+                <h:outputLabel for="unit" value="Unit:" />
+                <h:inputText id="unit" value="#{productm.unit}" required="true" />
+
+                <h:commandButton value="Add Product" action="#{productm.InsertPro(productm.categoryId)}" />
+
+
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
