@@ -1,0 +1,196 @@
+<!--<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    form {
+        width: 300px;
+        margin: 50px auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+    td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: #45a049;
+    }
+
+    #err {
+        color: red;
+        margin-top: 10px;
+    }
+</style>
+
+    </h:head>
+    <h:body>
+        <form method="POST" action="resources/index.jsf">
+        <table border="1">
+            <tr>  
+                <td>Email</td> <td><input type="text" name="email"  value=""/></td></tr>
+          
+            <tr>   <td>Password </td> <td><input type="password" name="password" value=""/></td></tr>
+            <tr><td><input type="submit" value="Login"/></td><td><input type="reset" value="Reset"/></td></tr>
+  
+        </table>
+        </form>
+        <br/>
+        <h:outputText id="err" style="color:red" value="#{login.setErrorMessage(login_Error__Either_Login_or_Password_is_)}"/>
+    </h:body>
+</html>-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Login and Registration</title>
+        <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    form {
+        width: 300px;
+        margin: 50px auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+    td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: #45a049;
+    }
+
+    #err {
+        color: red;
+        margin-top: 10px;
+    }
+</style>
+    </h:head>
+    <h:body>
+        <h:form id="loginForm">
+            <!-- Login Section -->
+            <h:panelGroup rendered="#{empty login.groups}">
+                <h:outputLabel for="userName">Username:</h:outputLabel>
+                <h:inputText id="userName" value="#{login.userName}" required="true" />
+                <br/>
+                <h:outputLabel for="password">Password:</h:outputLabel>
+                <h:inputSecret id="password" value="#{login.password}" required="true" />
+                <br/>
+                <h:selectBooleanCheckbox value="#{login.remember}" />
+                <h:outputLabel for="remember">Remember me</h:outputLabel>
+                <br/>
+                <h:commandButton value="Login" action="#{login.loginMethod}" />
+                <br/>
+                <h:messages style="color: red" />
+            </h:panelGroup>
+<!--            
+-->             Registration Section 
+            <h:panelGroup rendered="#{empty login.groups}">
+                <h:outputLabel for="r_username">Username:</h:outputLabel>
+                <h:inputText id="r_username" value="#{login.username}" required="true" />
+                <br/>
+                <h:outputLabel for="r_password">Password:</h:outputLabel>
+                <h:inputSecret id="r_password" value="#{login.r_password}" required="true" />
+                <br/>
+                <h:outputLabel for="email">Email:</h:outputLabel>
+                <h:inputText id="email" value="#{login.email}" required="true" />
+                <br/>
+                <h:outputLabel for="firstName">First Name:</h:outputLabel>
+                <h:inputText id="firstName" value="#{login.firstName}" required="true" />
+                <br/>
+                <h:outputLabel for="lastName">Last Name:</h:outputLabel>
+                <h:inputText id="lastName" value="#{login.lastName}" required="true" />
+                <br/>
+                <h:outputLabel for="MobileNo">Mobile No:</h:outputLabel>
+                <h:inputText id="MobileNo" value="#{login.MobileNo}" required="true" />
+                <br/>
+                <h:outputLabel for="address">Address:</h:outputLabel>
+                <h:inputText id="address" value="#{login.address}" required="true" />
+                <br/>
+                <h:outputLabel for="city">City:</h:outputLabel>
+                <h:inputText id="city" value="#{login.city}" required="true" />
+                <br/>
+                <h:outputLabel for="pincode">Pincode:</h:outputLabel>
+                <h:inputText id="pincode" value="#{login.pincode}" required="true" />
+                <br/>
+                <h:outputLabel for="state">State:</h:outputLabel>
+                <h:inputText id="state" value="#{login.state}" required="true" />
+                <br/>
+                <h:outputLabel for="country">Country:</h:outputLabel>
+                <h:inputText id="country" value="#{login.country}" required="true" />
+                <br/>
+                <h:commandButton value="Register" action="#{login.registerMethod}" />
+                <br/>
+                <h:messages style="color: red" />
+            </h:panelGroup>
+        </h:form>
+    </h:body>
+</html>
+
+

@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    .form-control {
+        margin-bottom: 15px;
+    }
+
+    h:outputLabel {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    h:inputText {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        text-align: center;
+    }
+
+    h:commandButton {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+
+    h:commandButton:hover {
+        background-color: #45a049;
+    }
+    </style>
+
+    </h:head>
+    <h:body>
+        <h:form id="form">
+                <h1>Registration</h1>
+            		<div class="form-control">
+        <h:outputLabel for="userName">userName :</h:outputLabel>
+        <h:inputText id="userName" value="#{registrationBean.userName}" required="true"/>
+                        </div>
+                        		<div class="form-control">
+        <h:outputLabel for="password">password:</h:outputLabel>
+        <h:inputText id="password" value="#{registrationBean.password}" required="true" />
+                                </div>
+                    		<div class="form-control">
+        <h:outputLabel for="email">email</h:outputLabel>
+        <h:inputText id="email" value="#{registrationBean.email}" required="true"/>
+                         </div>
+                   		<div class="form-control">
+        <h:outputLabel for="firstName">firstName:</h:outputLabel>
+        <h:inputText id="firstName" value="#{registrationBean.firstName}" required="true" />
+                        </div>
+            		<div class="form-control">
+        <h:outputLabel for="lastName">lastName :</h:outputLabel>
+        <h:inputText id="lastName" value="#{registrationBean.lastName}" required="true" />
+                         </div>
+           		<div class="form-control">
+        <h:outputLabel for="mobileNo">mobileNo :</h:outputLabel>
+        <h:inputText id="mobileNo" value="#{registrationBean.mobileNo}" required="true" >
+        </h:inputText>
+        
+                        </div>
+                <div class="form-control">
+         <h:outputLabel for="address">address :</h:outputLabel>
+        <h:inputText id="address" value="#{registrationBean.address}" required="true" />
+                </div>
+                <div class="form-control">
+        <h:outputLabel for="city">city :</h:outputLabel>
+        <h:inputText id="city" value="#{registrationBean.city}" required="true" />
+        </div>
+                <div class="form-control">
+        <h:outputLabel for="pincode">pincode :</h:outputLabel>
+        <h:inputText id="pincode" value="#{registrationBean.pincode}" required="true" />
+        </div>
+                <div class="form-control">
+                
+        <h:outputLabel for="state">state :</h:outputLabel>
+        <h:inputText id="state" value="#{registrationBean.state}" required="true" />
+        </div>
+                <div class="form-control">
+        <h:outputLabel for="country">country :</h:outputLabel>
+        <h:inputText id="country" value="#{registrationBean.country}" required="true" />
+                </div>
+           <div class="btn">
+                <h:commandButton value="Submit" action="#{registrationBean.Register()}" />
+            </div>
+        </h:form>
+    </h:body>
+</html>
